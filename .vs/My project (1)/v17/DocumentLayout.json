@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\esteban.guerraz\\Documents\\My project (1)\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}|Assembly-CSharp.csproj|c:\\users\\esteban.guerraz\\documents\\my project (1)\\assets\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}|Assembly-CSharp.csproj|solutionrelative:assets\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}|Assembly-CSharp.csproj|c:\\users\\esteban.guerraz\\documents\\my project (1)\\assets\\missile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}|Assembly-CSharp.csproj|solutionrelative:assets\\missile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}|Assembly-CSharp.csproj|C:\\Users\\esteban.guerraz\\Documents\\My project (1)\\assets\\mouvement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}|Assembly-CSharp.csproj|solutionrelative:assets\\mouvement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}|Assembly-CSharp.csproj|C:\\Users\\esteban.guerraz\\Documents\\My project (1)\\assets\\missile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}|Assembly-CSharp.csproj|solutionrelative:assets\\missile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}|Assembly-CSharp.csproj|C:\\Users\\esteban.guerraz\\Documents\\My project (1)\\assets\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1CE1FEE-67BE-6533-73AA-CC578BE80DCD}|Assembly-CSharp.csproj|solutionrelative:assets\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,15 +34,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Missile.cs",
               "DocumentMoniker": "C:\\Users\\esteban.guerraz\\Documents\\My project (1)\\Assets\\Missile.cs",
               "RelativeDocumentMoniker": "Assets\\Missile.cs",
               "ToolTip": "C:\\Users\\esteban.guerraz\\Documents\\My project (1)\\Assets\\Missile.cs",
               "RelativeToolTip": "Assets\\Missile.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAgwEoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAADwv0kAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T14:31:55.712Z"
+              "WhenOpened": "2025-04-09T14:31:55.712Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -52,13 +53,13 @@
               "RelativeDocumentMoniker": "Assets\\mouvement.cs",
               "ToolTip": "C:\\Users\\esteban.guerraz\\Documents\\My project (1)\\Assets\\mouvement.cs",
               "RelativeToolTip": "Assets\\mouvement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAQwEYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T14:29:37.45Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "GameController.cs",
               "DocumentMoniker": "C:\\Users\\esteban.guerraz\\Documents\\My project (1)\\Assets\\GameController.cs",
               "RelativeDocumentMoniker": "Assets\\GameController.cs",
@@ -66,8 +67,7 @@
               "RelativeToolTip": "Assets\\GameController.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAYwB0AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T14:05:33.661Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T14:05:33.661Z"
             }
           ]
         }

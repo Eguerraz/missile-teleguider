@@ -3,73 +3,68 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 5f;
+    public float acceleration = 5f;     // accélération avant/arrière
+    public float maxSpeed = 10f;        // vitesse max
+    public float rotationSpeed = 150f;  // vitesse de rotation (degrés/s)
+    public float driftFactor = 0.95f;   // glisse latérale
+
     private Rigidbody2D rb;
-    private bool isGrounded;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        // Contrôle des mouvements du joueur
-        float moveX = 0f;
+        // --- Entrées clavier ---
+        float rotationInput = 0f;
+        if (Input.GetKey(KeyCode.LeftArrow)) rotationInput = 1f;
+        else if (Input.GetKey(KeyCode.RightArrow)) rotationInput = -1f;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            moveX = -1.5f;
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            moveX = 1.5f;
-        }
+        float accelerationInput = 0f;
+        if (Input.GetKey(KeyCode.UpArrow)) accelerationInput = 1f;
+        else if (Input.GetKey(KeyCode.DownArrow)) accelerationInput = -1f;
 
-        rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y); // Correction ici
+        // --- Rotation (seulement si on appuie) ---
+        if (rotationInput != 0f)
+            rb.MoveRotation(rb.rotation + rotationInput * rotationSpeed * Time.fixedDeltaTime);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+        // --- Accélération dans la direction actuelle ---
+        Vector2 forward = transform.up;
+        rb.AddForce(forward * accelerationInput * acceleration);
 
-        // Si le joueur tombe dans le vide
-        if (transform.position.y < -10f)
-        {
-            Die();
-        }
+        // --- Limitation de la vitesse max ---
+        if (rb.velocity.magnitude > maxSpeed)
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+
+        // --- Drift ---
+        Vector2 forwardVelocity = forward * Vector2.Dot(rb.velocity, forward);
+        Vector2 sideVelocity = transform.right * Vector2.Dot(rb.velocity, transform.right);
+        rb.velocity = forwardVelocity + sideVelocity * driftFactor;
+
+        ClampToCamera();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void ClampToCamera()
     {
-        // Détection du sol pour permettre le saut
-        if (collision.contacts[0].normal.y > 0.5f)
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // Lorsque le joueur quitte le sol
-        isGrounded = false;
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        viewPos.x = Mathf.Clamp01(viewPos.x);
+        viewPos.y = Mathf.Clamp01(viewPos.y);
+        transform.position = Camera.main.ViewportToWorldPoint(viewPos);
     }
 
     void Die()
     {
-        Destroy(gameObject); // Détruit le joueur
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.name); // Recharge la scène
+        Destroy(gameObject);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // Détection des collisions avec la dead zone
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Si le joueur touche un objet avec le tag "DeadZone" ou un missile
         if (other.CompareTag("DeadZone") || other.CompareTag("Missile"))
         {
-            Die();  // Appeler la fonction de mort du joueur
+            Die();
         }
     }
 }

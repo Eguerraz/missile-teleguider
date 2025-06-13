@@ -68,7 +68,12 @@ public class Missile : MonoBehaviour
 
         // Applique la nouvelle vitesse interpolée
         rb.velocity = newDirection * speed;
+
+        // 🔄 Fait tourner le missile pour qu'il pointe vers le joueur
+        float angle = Mathf.Atan2(newDirection.y, newDirection.x) * Mathf.Rad2Deg;
+        rb.rotation = angle ;
     }
+
 
 
     void OnTriggerEnter2D(Collider2D other)
